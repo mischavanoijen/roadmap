@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TimelineView } from './components/TimelineView';
 import { useRoadmapStore } from './store/roadmapStore';
 import clsx from 'clsx';
@@ -532,6 +532,20 @@ function Footer() {
 }
 
 export function App() {
+  const { initialize, initialized } = useRoadmapStore();
+
+  useEffect(() => {
+    initialize();
+  }, [initialize]);
+
+  if (!initialized) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-slate-900">
+        <div className="text-slate-100">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-800 flex flex-col">
       <Header />
