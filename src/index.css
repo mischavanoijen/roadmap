@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar by default */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Show scrollbar only when actively scrolling */
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*:active::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Ensure smooth transition */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: scrollbar-width 0.3s ease;
+}
